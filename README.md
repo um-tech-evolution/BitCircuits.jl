@@ -5,6 +5,27 @@
 Boolean circuit tree implementation that uses bit strings to cache evaluation
 results and bitwise operations to evaluate new circuits based on existing trees.
 
+## API
+
+The API is very simple. Trees consist of `Operation`s (interior nodes),
+`Variable`s, and `Constant`s (both of which are leaf nodes). Right now all
+operations are functions of two parameters.
+
+### `Variable`
+
+The constructor takes a single parameter, an integer in `[0,5]` (there are six
+possible variables.
+
+### `Constant`
+
+The constructor takes a single boolean.
+
+### `Operation`
+
+The constructor takes a function to apply, this must be a bitwise function that
+can operate on integers, and two sub-trees, to which the function will be
+applied.
+
 ## Examples
 
 ```julia
