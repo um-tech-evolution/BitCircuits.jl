@@ -77,7 +77,7 @@ immutable Variable <: Node
         for ctxval = uint64(0):uint64(63)
             varmask = 2 ^ idx |> uint64
             if (ctxval & varmask) > 0
-                cache = cache | (2 ^ ctxval)
+                cache = cache | (uint64(2) ^ ctxval)
             end
         end
         return new(idx, "X$(idx)", cache)
