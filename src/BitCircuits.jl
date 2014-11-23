@@ -1,6 +1,6 @@
 module BitCircuits
 
-export Operation, Constant, Variable, evaluate
+export Operation, Constant, Variable, evaluate, equal
 
 typealias BitString Uint64
 typealias VarIdx Uint64
@@ -94,6 +94,8 @@ function evaluate(root::Node, ctxval::Context)
     mask = 2 ^ ctxval |> uint64
     return root.cache & mask > 0
 end
+
+evaluate(root::Node, ctxval::Uint8) = evaluate(root, ctxval |> uint64)
 
 # ---------------
 # Tree comparison
