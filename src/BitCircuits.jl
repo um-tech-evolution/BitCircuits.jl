@@ -73,7 +73,7 @@ immutable Variable <: Node
         if idx > 5
             error("idx must be  in [0, 5]")
         end
-        cache = 0
+        cache = uint64(0)
         for ctxval = uint64(0):uint64(63)
             varmask = 2 ^ idx |> uint64
             if (ctxval & varmask) > 0
