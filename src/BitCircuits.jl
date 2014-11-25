@@ -8,22 +8,6 @@ typealias Context Uint64
 
 abstract Node
 
-# ----------------
-# Variable context
-# ----------------
-
-immutable Context2
-    bits::Uint64
-    function Context(bits::Uint64)
-        if bits > 63
-            error("ctx must be between 000000 (0) and 111111 (63)")
-        end
-        return new(bits)
-    end
-end
-
-Context2(bits::Int64) = Context2(uint64(bits))
-
 # ----------
 # Operations
 # ----------
